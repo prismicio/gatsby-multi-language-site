@@ -74,7 +74,6 @@ query homepageQuery($lang: String) {
               label
               primary {
                 featured_image
-                top_icon
                 section_title
                 text
               }
@@ -83,7 +82,6 @@ query homepageQuery($lang: String) {
               type
               label
               primary {
-                top_icon
                 section_title
                 left_column_text
                 right_column_text
@@ -96,7 +94,6 @@ query homepageQuery($lang: String) {
     allTop_menus(lang: $lang) {
       edges {
         node {
-          site_logo
           menu_links {
             label
             link {

@@ -60,6 +60,23 @@ pre {
   word-wrap: break-word;  /* Internet Explorer 5.5+ */
 }
 
+ol,
+ul {
+  margin: 0 0 20px 30px;
+
+  li {
+    margin-bottom: 8px;
+  }
+}
+
+ol {
+  list-style: disc;
+}
+
+ul {
+  list-style: decimal;
+}
+
 strong {
   font-weight: bold;
 }

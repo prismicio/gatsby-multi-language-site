@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 import { linkResolver } from 'gatsby-source-prismic-graphql'
 import LanguageSwitcher from './LanguageSwitcher'
+import logo from '../images/logo.png'
 
 const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu.menu_links
@@ -19,11 +20,7 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
     <header>
       <div className="menu">
         <Link to="/">
-          <img
-            className="logo"
-            src={topMenu.site_logo ? topMenu.site_logo.url : ''}
-            alt={topMenu.site_logo ? topMenu.site_logo.alt : ''}
-          />
+          <img className="logo" src={logo} alt="Site logo" />
         </Link>
       </div>
       <div className="menu">

@@ -24,13 +24,14 @@ header {
       vertical-align: text-top;
 
       @media only screen and (min-width: $min-width-md) {
-        width: 90%;
+        width: 75%;
       }
     }
 
     ul {
       display: flex;
       align-items: baseline;
+      list-style: none;
 
       .language-switcher {
         color: grey;
