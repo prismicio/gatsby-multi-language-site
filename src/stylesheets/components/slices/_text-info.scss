@@ -19,13 +19,8 @@
     }
   }
 
-  .right-column {
-    margin-left: 0;
-
-    @media only screen and (min-width: $min-width-l) {
-      margin-left: 135px;
-    }
-    
+  .right-column,
+  .left-column {
     h3 {
       font-size: 20px;
       line-height: 36px;
@@ -42,6 +37,14 @@
       line-height: 30px;
       font-size: 16px;
       font-weight: 400;
+    }
+  }
+
+  .right-column {
+    margin-left: 0;
+
+    @media only screen and (min-width: $min-width-l) {
+      margin-left: 135px;
     }
   }
 }

@@ -24,8 +24,7 @@ module.exports = {
           },
           {
             type: 'Page',
-            match:
-              '/page/:lang?/:uid',
+            match: '/page/:lang?/:uid',
             path: '/page/:lang?',
             component: require.resolve('./src/templates/Page.js'),
             langs,
