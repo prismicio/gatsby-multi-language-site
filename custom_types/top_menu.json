@@ -7,16 +7,6 @@
         "label" : "display_title"
       }
     },
-    "site_logo" : {
-      "type" : "Image",
-      "config" : {
-        "constraint" : {
-          "width" : 102
-        },
-        "thumbnails" : [ ],
-        "label" : "site_logo"
-      }
-    },
     "menu_links" : {
       "type" : "Group",
       "config" : {

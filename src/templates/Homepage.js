@@ -96,7 +96,6 @@ query homepageQuery($lang: String) {
     allTop_menus(lang: $lang) {
       edges {
         node {
-          site_logo
           menu_links {
             label
             link {
