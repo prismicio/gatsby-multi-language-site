@@ -51,7 +51,8 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 234
+                    "width" : 235,
+                    "height" : 75
                   },
                   "thumbnails" : [ ],
                   "label" : "button"
@@ -79,7 +80,8 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 1080
+                    "width" : 1080,
+                    "height" : 580
                   },
                   "thumbnails" : [ ],
                   "label" : "image"
@@ -99,7 +101,8 @@
                 "type" : "Image",
                 "config" : {
                   "constraint" : {
-                    "width" : 600
+                    "width" : 600,
+                    "height" : 690
                   },
                   "thumbnails" : [ {
                     "name" : "tablet",
@@ -111,17 +114,6 @@
                     "height" : 300
                   } ],
                   "label" : "featured_image"
-                }
-              },
-              "top_icon" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : {
-                    "width" : 62,
-                    "height" : 62
-                  },
-                  "thumbnails" : [ ],
-                  "label" : "top_icon"
                 }
               },
               "section_title" : {
@@ -149,17 +141,6 @@
             "icon" : "subject",
             "display" : "list",
             "non-repeat" : {
-              "top_icon" : {
-                "type" : "Image",
-                "config" : {
-                  "constraint" : {
-                    "width" : 62,
-                    "height" : 62
-                  },
-                  "thumbnails" : [ ],
-                  "label" : "top_icon"
-                }
-              },
               "section_title" : {
                 "type" : "StructuredText",
                 "config" : {

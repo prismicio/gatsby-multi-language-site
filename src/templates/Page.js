@@ -77,7 +77,6 @@ query pageQuery($uid: String, $lang: String) {
               label
               primary {
                 featured_image
-                top_icon
                 section_title
                 text
               }
@@ -86,7 +85,6 @@ query pageQuery($uid: String, $lang: String) {
               type
               label
               primary {
-                top_icon
                 section_title
                 left_column_text
                 right_column_text
