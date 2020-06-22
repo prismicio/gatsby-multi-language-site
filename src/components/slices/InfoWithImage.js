@@ -10,13 +10,13 @@ const InfoWithImage = ({ slice }) => {
       <div className="featured-image">
         <picture>
           <source
-            srcSet={featuredImage ? featuredImage.mobile.url : ''}
-            alt={featuredImage ? featuredImage.mobile.alt : ''}
+            srcSet={featuredImage ? featuredImage.url : ''}
+            alt={featuredImage ? featuredImage.alt : ''}
             media="(max-width: 500px)"
           />
           <source
-            srcSet={featuredImage ? featuredImage.tablet.url : ''}
-            alt={featuredImage ? featuredImage.tablet.alt : ''}
+            srcSet={featuredImage ? featuredImage.url : ''}
+            alt={featuredImage ? featuredImage.alt : ''}
             media="(max-width: 1100px)"
           />
           <img
@@ -27,9 +27,9 @@ const InfoWithImage = ({ slice }) => {
       </div>
       <div className="text-content">
         <img src={topIcon} alt="Checkbox icon" />
-        <RichText render={slice.primary.section_title || []} />
+        <RichText render={slice.primary.section_title.raw || []} />
         <RichText
-          render={slice.primary.text || []}
+          render={slice.primary.text.raw || []}
           serializeHyperlink={GatsbyLink}
         />
       </div>

@@ -1,4 +1,34 @@
-const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
+// const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
+const { prismicRepo } = require('./prismic-config')
+const linkResolver = require('./src/utils/linkResolver')
+
+process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
+process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || '/previews'
+const accessToken = process.env.PRISMIC_API_KEY
+
+const homepageSchema = require('./custom_types/homepage.json')
+const pageSchema = require('./custom_types/page.json')
+const topMenuSchema = require('./custom_types/top_menu.json')
+
+const gastbySourcePrismicConfig = {
+  resolve: 'gatsby-source-prismic',
+  options: {
+    repositoryName: process.env.PRISMIC_REPO_NAME,
+    accessToken,
+    linkResolver: () => linkResolver,
+
+    schemas: {
+      // Custom types mapped to schemas
+      homepage: homepageSchema,
+      page: pageSchema,
+      top_menu: topMenuSchema,
+    },
+
+    // releaseID: buildRelease ? process.env.PRISMIC_RELEASE_ID : "",
+    // add prismic toolbar
+    prismicToolbar: true,
+  },
+};
 
 module.exports = {
   siteMetadata: {
@@ -6,32 +36,7 @@ module.exports = {
     description: 'Sample multi-language website with Prismic CMS & Gatsby.js',
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-prismic-graphql',
-      options: {
-        repositoryName: prismicRepo,
-        defaultLang: defaultLanguage,
-        path: '/preview',
-        previews: true,
-        langs,
-        pages: [
-          {
-            type: 'Homepage',
-            match: '/:lang?',
-            path: '/:lang?',
-            component: require.resolve('./src/templates/Homepage.js'),
-            langs,
-          },
-          {
-            type: 'Page',
-            match: '/page/:lang?/:uid',
-            path: '/page/:lang?',
-            component: require.resolve('./src/templates/Page.js'),
-            langs,
-          },
-        ],
-      },
-    },
+    gastbySourcePrismicConfig,
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',

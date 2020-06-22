@@ -1,4 +1,4 @@
-import { defaultLanguage } from '../../prismic-config'
+const { defaultLanguage } = require('../../prismic-config')
 
 /* The Link Resolver
 * This function will be used to generate links to Prismic documents
@@ -18,4 +18,4 @@ const linkResolver = (doc) => {
   return '/'
 }
 
-export default linkResolver
+module.exports = linkResolver
