@@ -6,6 +6,5 @@ module.exports = {
   previewPath: '/preview',
 
   // Language configuration in your Prismic repository: Settings / Translations & locals
-  defaultLanguage: 'en-us',
-  langs: ['en-us', 'fr-fr'],
+  releaseID: "XvIgmxIAACMAzSaL",
 }
