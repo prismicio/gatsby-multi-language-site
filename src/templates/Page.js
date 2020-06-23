@@ -5,7 +5,7 @@ import SliceZone from '../components/SliceZone'
 import { withPreview } from 'gatsby-source-prismic'
 
 
-const Page = ({ data }) => {
+export const PageTemplate = ({ data }) => {
   const pageContent = data.prismicPage
   if (!pageContent) return null
   const page = pageContent.data
@@ -210,4 +210,4 @@ query pageQuery($uid: String, $lang: String) {
 
 `
 
-export default withPreview(Page)
+export default withPreview(PageTemplate)

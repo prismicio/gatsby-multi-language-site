@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
 
 
-const Homepage = ({ data }) => {
+export const HomepageTemplate = ({ data }) => {
   if (!data) return null
 
   const homepage = data.prismicHomepage
@@ -227,4 +227,4 @@ query homepageQuery($lang: String) {
 }
 `
 
-export default withPreview(Homepage)
+export default withPreview(HomepageTemplate)
