@@ -1,7 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { withPreview } from 'gatsby-source-prismic'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
+
 
 const Homepage = ({ data }) => {
   if (!data) return null
@@ -9,9 +11,9 @@ const Homepage = ({ data }) => {
   const homepage = data.prismicHomepage
   const topMenu = data.prismicTopMenu
   
-  const { lang, type, url } = homepage;
+  const { lang, type, url } = homepage
   const alternateLanguages = homepage.alternate_languages
-  const activeDoc = { lang, type, url, alternateLanguages };
+  const activeDoc = { lang, type, url, alternateLanguages }
   return (
     <Layout
       topMenu={topMenu.data}
@@ -225,4 +227,4 @@ query homepageQuery($lang: String) {
 }
 `
 
-export default Homepage
+export default withPreview(Homepage)

@@ -1,9 +1,11 @@
 // const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
-const { prismicRepo } = require('./prismic-config')
+const { prismicRepo, previewPath } = require('./prismic-config')
 const linkResolver = require('./src/utils/linkResolver')
 
 process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
-process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || '/previews'
+
+process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath
+
 const accessToken = process.env.PRISMIC_API_KEY
 
 const homepageSchema = require('./custom_types/homepage.json')
@@ -15,7 +17,7 @@ const gastbySourcePrismicConfig = {
   options: {
     repositoryName: process.env.PRISMIC_REPO_NAME,
     accessToken,
-    linkResolver: () => linkResolver,
+    linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
 
     schemas: {
       // Custom types mapped to schemas
@@ -28,7 +30,7 @@ const gastbySourcePrismicConfig = {
     // add prismic toolbar
     prismicToolbar: true,
   },
-};
+}
 
 module.exports = {
   siteMetadata: {

@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
+import { withPreview } from 'gatsby-source-prismic'
+
 
 const Page = ({ data }) => {
   const pageContent = data.prismicPage
@@ -208,4 +210,4 @@ query pageQuery($uid: String, $lang: String) {
 
 `
 
-export default Page
+export default withPreview(Page)
