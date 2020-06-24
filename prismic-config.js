@@ -5,6 +5,10 @@ module.exports = {
   // Preview path for handling redirects.
   previewPath: '/preview',
 
+  // Release ID to build
+  releaseID: 'XvIgmxIAACMAzSaL',
+
   // Language configuration in your Prismic repository: Settings / Translations & locals
-  releaseID: "XvIgmxIAACMAzSaL",
+  defaultLanguage: 'en-us',
+  langs: ['en-us', 'fr-fr'],
 }

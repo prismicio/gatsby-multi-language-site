@@ -10,8 +10,7 @@ process.env.PRISMIC_RELEASE_ID = process.env.PRISMIC_RELEASE_ID || releaseID
 
 const accessToken = process.env.PRISMIC_API_KEY
 
-const buildRelease = process.env.NODE_ENV === "development" && process.env.GATSBY_CLOUD
-
+const buildRelease = process.env.NODE_ENV === 'development' && process.env.GATSBY_CLOUD
 
 const homepageSchema = require('./custom_types/homepage.json')
 const pageSchema = require('./custom_types/page.json')
