@@ -1,5 +1,5 @@
 // const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
-const { prismicRepo, previewPath, releaseID } = require('./prismic-config')
+const { prismicRepo, previewPath, releaseID, buildRelease } = require('./prismic-config')
 const linkResolver = require('./src/utils/linkResolver')
 
 process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
@@ -9,8 +9,6 @@ process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPa
 process.env.PRISMIC_RELEASE_ID = process.env.PRISMIC_RELEASE_ID || releaseID
 
 const accessToken = process.env.PRISMIC_API_KEY
-
-const buildRelease = process.env.NODE_ENV === 'development' && process.env.GATSBY_CLOUD
 
 const homepageSchema = require('./custom_types/homepage.json')
 const pageSchema = require('./custom_types/page.json')

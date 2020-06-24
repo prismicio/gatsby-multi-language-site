@@ -7,6 +7,7 @@ module.exports = {
 
   // Release ID to build
   releaseID: 'XvIgmxIAACMAzSaL',
+  buildRelease: process && process.env && process.env.GATSBY_CLOUD && process.env.NODE_ENV === "development",
 
   // Language configuration in your Prismic repository: Settings / Translations & locals
   defaultLanguage: 'en-us',
