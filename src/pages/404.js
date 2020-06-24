@@ -15,15 +15,11 @@ const Page404 = () => (
   </div>
 )
 
-export default (props) => {
-  console.log("404")
-  console.log({ props })
-  return withUnpublishedPreview(Page404, {
-    templateMap: {
-      page: PageTemplate,
-      homepage: HomepageTemplate,
-      prismicPage: PageTemplate,
-      prismicHomepage: HomepageTemplate,
-    },
-  })(props)
-}
+export default withUnpublishedPreview(Page404, {
+  templateMap: {
+    page: PageTemplate,
+    homepage: HomepageTemplate,
+    prismicPage: PageTemplate,
+    prismicHomepage: HomepageTemplate,
+  },
+})

@@ -1,34 +1,36 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { withPreview } from 'gatsby-source-prismic'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
-import { withPreview } from 'gatsby-source-prismic'
-
 
 export const PageTemplate = ({ data }) => {
+  if (!data) return null
+
   const pageContent = data.prismicPage
-  if (!pageContent) return null
-  const page = pageContent.data
+  const page = pageContent.data || {}
 
   const { lang, type, url } = pageContent
-  const alternateLanguages = pageContent.alternate_languages
-  const activeDoc = { lang, type, url, alternateLanguages }
-
-  const topMenuContent = data.prismicTopMenu
-  if (!topMenuContent) return null
-  const topMenu = topMenuContent.data
-
-  if (page) {
-    return (
-      <Layout
-        topMenu={topMenu}
-        activeDocMeta={activeDoc}
-      >
-        <SliceZone slices={page.body} />
-      </Layout>
-    )
+  const alternateLanguages = pageContent.alternate_languages || []
+  const activeDoc = {
+    lang,
+    type,
+    url,
+    alternateLanguages,
   }
-  return null
+
+  const topMenuContent = data.prismicTopMenu || {}
+  // if (!topMenuContent) return null
+  const topMenu = topMenuContent.data || {}
+
+  return (
+    <Layout
+      topMenu={topMenu}
+      activeDocMeta={activeDoc}
+    >
+      <SliceZone slices={page.body} />
+    </Layout>
+  )
 }
 
 export const query = graphql`

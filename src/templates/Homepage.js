@@ -4,16 +4,21 @@ import { withPreview } from 'gatsby-source-prismic'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
 
-
 export const HomepageTemplate = ({ data }) => {
   if (!data) return null
 
-  const homepage = data.prismicHomepage
-  const topMenu = data.prismicTopMenu
-  
-  const { lang, type, url } = homepage
-  const alternateLanguages = homepage.alternate_languages
-  const activeDoc = { lang, type, url, alternateLanguages }
+  const homepage = data.prismicHomepage || {}
+  const topMenu = data.prismicTopMenu || {}
+
+  const { lang, type, url } = homepage || {}
+  const alternateLanguages = homepage.alternate_languages || []
+  const activeDoc = {
+    lang,
+    type,
+    url,
+    alternateLanguages,
+  }
+
   return (
     <Layout
       topMenu={topMenu.data}
