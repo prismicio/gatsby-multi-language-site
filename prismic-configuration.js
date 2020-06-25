@@ -10,11 +10,11 @@ module.exports = {
   // Preview path for handling redirects.
   previewPath: '/preview',
 
-  // Release ID to build (requires access token)
+  // Release ID to build (requires access)
   releaseID: 'XvIgmxIAACMAzSaL',
 
   // access token to access the release
-  accessToken: '',
+  // accessToken: '',
 
   buildRelease: process && process.env && process.env.GATSBY_CLOUD && process.env.NODE_ENV === 'development',
 

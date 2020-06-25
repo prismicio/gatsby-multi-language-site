@@ -1,5 +1,5 @@
 // const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
-const { prismicRepo, previewPath, releaseID, buildRelease, accessToken } = require('./prismic-config')
+const { prismicRepo, previewPath, releaseID, buildRelease, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
 process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo

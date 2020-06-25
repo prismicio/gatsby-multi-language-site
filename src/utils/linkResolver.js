@@ -1,4 +1,4 @@
-const { defaultLanguage } = require('../../prismic-config')
+const { defaultLanguage } = require('../../prismic-configuration')
 
 /* The Link Resolver
 * This function will be used to generate links to Prismic documents
