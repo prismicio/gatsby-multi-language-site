@@ -20,6 +20,8 @@ These steps will help you create a prismic repository,
 The release id can be found in the api browser. `repo-name.prismic.io/api` clicking the dropdown arrow to select a ref. 
 ![release-id](./images/release-id.png)
 
+Alternatively release ids can be retrieved after creating the access tokens in the next step buy using the this script [/fetchReleaseIds.js](./fetchReleaseIds.js) `node fetchReleaseIds`.
+
 ### Create api tokens.
 To generate a token, follow these steps:
 1. Go to your repository's Settings / API & Security.

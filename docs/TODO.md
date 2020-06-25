@@ -14,10 +14,10 @@
 [x] Add information about the API access tokens
 [x] Add information about the webhooks and settings
     [x] individual settings
-    
-[] How to get the release id
+
+[x] How to get the release id
 
 [] Images
     [x] webhooks configuration
-    + release id
+    [x] release id
 
