@@ -13,11 +13,12 @@ These steps will help you create a prismic repository,
 
 4. Go to [prismic.io](https://prismic.io) and select dash board and find the repository in the dashboard.
 5. Select the repository in the dash board and select the master language.
-6. Update `prismic-configuration.js` with the master language in the defaultLanguage property.
-7. Create some content with in prismic using the custom-types and publish.
+6. Update `prismic-configuration.js` with the master language in the `defaultLanguage` property.
+7. Create/Edit some content with in prismic using the custom-types and publish.
 8. Edit the content, save and select publish and the publish in a release, create an new release to use with gatsby preview server. In order to do this you will need the release id.
 
-9. ... get the release id?
+The release id can be found in the api browser. `repo-name.prismic.io/api` clicking the dropdown arrow to select a ref. 
+![release-id](./images/release-id.png)
 
 ### Create api tokens.
 To generate a token, follow these steps:
@@ -106,75 +107,6 @@ __You will also need to add in the following Gatsby Cloud-specific environment v
 | `PRISMIC_API_KEY` | required if prismic api access token |
 | `PRISMIC_PREVIEW_PATH` | a route to handle redirects from prismic to gatsby-preview |
 | `PRISMIC_RELEASE_ID` | A prismic release id to build in gatsby-previews |
-
-
-### Environment variables in your `gatsby-config.js`:
-
-In your gatsby-config.js file, follow these steps:
-
-+ In GitHub, navigate to the Gatsby site you selected for your instance
-
-+ Navigate to the `gatsby-config.js` file at the root of the site - If you don’t have a `gatsby-config.js` file, [create one](https://www.gatsbyjs.org/docs/gatsby-config/?__hstc=247646936.26f7a3d4f1dbcdbe397a7c81785dbe96.1588758217561.1591118820931.1591176956114.23&__hssc=247646936.8.1591176956114&__hsfp=1004366510)
-
-+ In the `gatsby-config.js` file, check that your `gatsby-source-prismic` config contains the `PRISMIC_REPO_NAME`, `PRISMIC_RELEASE_ID` and `PRISMIC_API_KEY` if using one.
-
-> Note: in this example `PRISMIC_PREVIEW_PATH` is used in `gatsby-node.js` to conditionally create a [preview route](#Adding a preview route).
-
-
-It should look something like this:
-
-
-```js
-const buildRelease = process.env.GATSBY_CLOUD && process.env.NODE_ENV === "development";
-
-module.exports = {
-    plugins: [
-        resolve: 'gatsby-source-prismic',
-        options: {
-            repositoryName: process.env.PRISMIC_REPO_NAME,
-            accessToken: process.env.PRISMIC_API_KEY || undefined,
-            releaseID: buildRelease ? process.env.PRISMIC_RELEASE_ID : "",
-            linkResolver: ({ node, key, value }) => doc => {
-                // Your link resolver
-            },
-            schemas: {
-                // Custom types mapped to schemas
-            },
-        }
-    ]
-}
-```
-
-## Setting up previews
-here we configure a preview in prismic that redirects to the gatbsy preview
-adding a release
-setting the release id in gatsby 
-
-### Adding a preview route
-
-When navigating from prismic to gatsby by using the preview button, the browser will be redirected to the path set when configuring the preview in prismic, (the default is `/previews`). An example of the page to redirect to the correct page from the preview rout can be found [here](https://github.com/prismicio/gatsby-starter-default/blob/master/src/templates/previews.js). 
-
-A preview route will can conditionally be created  by adding the follwing to the projects `gatsby-node.js` a when a preview build is run in gatsby. To build the preview route locally run `GATSBY_CLOUD=true npm start`. 
-
-```js
-// gatsby-node.js
-exports.createPages = async ({ graphql, actions }) => {
-    const { createPage } = actions;
-    const { GATSBY_CLOUD, NODE_ENV, PRISMIC_PREVIEW_PATH } = process.env
-    
-    if (GASTBY_CLOUD && NODE_ENV === 'development' && PRISMIC_PREVIEW_PATH) {
-        
-        createPage({
-            path: PRISMIC_PREVIEW_PATH,
-            component: path.resolve(__dirname, 'src/templates/previews.js'), 
-            context: {
-                repositoryName: PRISMIC_REPO_NAME,
-                apiKey: PRISMIC_API_KEY,
-            },
-        });
-    }
-}
-```
 
 
 ## Webhooks: Configuring your Gatsby site to work with Gatsby Cloud
