@@ -19,7 +19,7 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
   return (
     <header>
       <div className="menu">
-        <Link href="/">
+        <Link to="/">
           <img className="logo" src={logo} alt="Site logo" />
         </Link>
       </div>
