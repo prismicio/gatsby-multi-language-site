@@ -1,4 +1,4 @@
-import { defaultLanguage } from "../../prismic-config";
+import { defaultLanguage } from '../../prismic-config';
 
 /* The Link Resolver
 * This function will be used to generate links to Prismic documents
