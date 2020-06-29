@@ -8,16 +8,16 @@ const linkResolver = (doc) => {
   const properties = doc._meta || doc;
 
   if (properties.type === 'homepage') {
-    return properties.lang === defaultLanguage ? '/' : `/${properties.lang}`;
+    return properties.lang === defaultLanguage ? '/' : `/${properties.lang}`
   }
 
   if (properties.type === 'page') {
     return properties.lang === defaultLanguage
       ? `/page/${properties.uid}`
-      : `/page/${properties.lang}/${properties.uid}`;
+      : `/page/${properties.lang}/${properties.uid}`
   }
 
-  return '/';
+  return '/'
 };
 
-export default linkResolver;
+export default linkResolver
