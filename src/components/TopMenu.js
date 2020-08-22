@@ -9,7 +9,7 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu.menu_links
     ? topMenu.menu_links.map((menuLink, index) => (
       <li key={`top-nav-${index}`}>
-        <Link to={PrismicLink.url(menuLink.link, linkResolver)}>
+        <Link to={linkResolver(menuLink.link._meta)}>
           {RichText.asText(menuLink.label)}
         </Link>
       </li>
