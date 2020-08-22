@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Link as PrismicLink, RichText } from 'prismic-reactjs'
-import { linkResolver } from 'gatsby-source-prismic-graphql'
+import { RichText } from 'prismic-reactjs'
+import { linkResolver } from '@prismicio/gatsby-source-prismic-graphql'
 import LanguageSwitcher from './LanguageSwitcher'
 import logo from '../images/logo.png'
 
