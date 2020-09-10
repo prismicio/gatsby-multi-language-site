@@ -18,14 +18,11 @@ export const PageTemplate = ({ data }) => {
     url,
     alternateLanguages,
   }
-
-  const topMenuContent = data.prismicTopMenu || {}
-  // if (!topMenuContent) return null
-  const topMenu = topMenuContent.data || {}
+  const topMenu = data.prismicTopMenu || {}
 
   return (
     <Layout
-      topMenu={topMenu}
+      topMenu={topMenu.data}
       activeDocMeta={activeDoc}
     >
       <SliceZone slices={page.body} />
@@ -151,62 +148,7 @@ query pageQuery($uid: String, $lang: String) {
     }
   }
   prismicTopMenu(lang: {eq: $lang}) {
-    type
-    lang
-    data {
-      menu_links {
-        label {
-          html
-          raw
-          text
-        }
-        link {
-          lang
-          uid
-          type
-          document {
-            ... on PrismicPage {
-              id
-              uid
-              lang
-              type
-              url
-              alternate_languages {
-                uid
-                url
-                lang
-                type
-              }
-              data {
-                display_title {
-                  html
-                  raw
-                  text
-                }
-              }
-            }
-            ... on PrismicHomepage {
-              url
-              id
-              type
-              lang
-              alternate_languages {
-                url
-                uid
-                lang
-              }
-              data {
-                display_title {
-                  html
-                  text
-                  raw
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+   ...TopMenuFragment
   }
 }
 

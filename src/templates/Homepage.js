@@ -175,59 +175,7 @@ query homepageQuery($lang: String) {
     }
   }
   prismicTopMenu(lang: {eq: $lang}) {
-    type
-    lang
-    data {
-      menu_links {
-        label {
-          html
-          raw
-          text
-        }
-        link {
-          document {
-            ... on PrismicHomepage {
-              id
-              url
-              type
-              lang
-              alternate_languages {
-                uid
-                url
-                type
-                lang
-              }
-              data {
-                display_title {
-                  html
-                  raw
-                  text
-                }
-              }
-            }
-            ... on PrismicPage {
-              id
-              url
-              uid
-              lang
-              alternate_languages {
-                uid
-                url
-                type
-                lang
-              }
-              data {
-                display_title {
-                  html
-                  raw
-                  text
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    ...TopMenuFragment
   }
 }
 `

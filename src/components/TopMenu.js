@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 // import { linkResolver } from 'gatsby-source-prismic-graphql'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -9,7 +9,7 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu.menu_links
     ? topMenu.menu_links.map((menuLink, index) => (
       <li key={`top-nav-${index}`}>
-        <Link to={menuLink.link.document.url}>
+        <Link id={menuLink.link.id} to={menuLink.link.url}>
           {RichText.asText(menuLink.label.raw)}
         </Link>
       </li>
@@ -32,5 +32,25 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
     </header>
   )
 }
+
+export const query = graphql`
+fragment TopMenuFragment on PrismicTopMenu {
+  type
+  lang
+  data {
+    menu_links {
+      label {
+        raw
+        html
+        text
+      }
+      link {
+        id
+        url
+      }
+    }
+  }
+}
+`
 
 export default TopMenu
