@@ -1,12 +1,12 @@
 // const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
-const { prismicRepo, previewPath, releaseID, buildRelease, accessToken } = require('./prismic-configuration')
+const { prismicRepo, previewPath, releaseID, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
 process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
 
 process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath
 
-process.env.PRISMIC_RELEASE_ID = process.env.PRISMIC_RELEASE_ID || releaseID
+
 
 const apiKey = process.env.PRISMIC_API_KEY || accessToken
 
@@ -28,7 +28,7 @@ const gastbySourcePrismicConfig = {
       top_menu: topMenuSchema,
     },
 
-    releaseID: buildRelease ? process.env.PRISMIC_RELEASE_ID : '',
+    releaseID: process.env.PRISMIC_RELEASE_ID || releaseID || '',
     // add prismic toolbar
     prismicToolbar: true,
   },
