@@ -108,7 +108,7 @@ __You will also need to add in the following Gatsby Cloud-specific environment v
 | `PRISMIC_REPO_NAME` | prismic repository name |
 | `PRISMIC_API_KEY` | required if prismic api access token |
 | `PRISMIC_PREVIEW_PATH` | a route to handle redirects from prismic to gatsby-preview |
-| `PRISMIC_RELEASE_ID` | A prismic release id to build in gatsby-previews |
+| `PRISMIC_RELEASE_ID` | (Optional) A prismic release id to build in gatsby-previews |
 
 
 ## Webhooks: Configuring your Gatsby site to work with Gatsby Cloud
@@ -141,6 +141,17 @@ The default triggers are fine for the preview instance.
 Then create another webhook for the using the build url from gatsby, and de-select"the "release is created" and "release is edited or deleted` options and now the production build will automatically update when changes happen to the content in prismic.
 
 The configuration should look something like this ![](./images/webhook.png)
+
+## Using gatsby-cloud's preview instance.
+
+[Gatsby-cloud](https://www.gatsbyjs.com/) provides automated build and serve of from selected branches from a github repository. One use case for this is to build a [prismic-release](https://user-guides.prismic.io/en/articles/778358-what-is-a-release) or a collection of document changes to released at the same time.
+
+To build a release a few steps are required
++ in prismic
+  + create and access token with access to both master and releases.
+  + the id of the release to build, this can be obtained by going to the api browser `[repo-name].prismic.io/api` clickcing on the lock icon in the top right hand of the screen and then selectingj selecting the release to build. The release-id should appear next too the [selected release](./images/release-id-api-browser.png)
+
+Create a build on gatsby using a branch of the current repository, and set environment variables  the access token `PRISMIC_API_KEY` and `PRISMIC_API_KEY` to the values obtained. You should now be able to view a release when clicking the `preview cms` button in gatsby-cloud.
 
 ## Wrapping Up
 At this point, you now have a prismic repository configured to best support Gatsby Cloud. Edit content and watch it appear live in Gatsby Cloud!
