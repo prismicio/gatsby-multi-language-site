@@ -1,7 +1,7 @@
 
 module.exports = {
   // The repo name for your Prismic repository (found in the url of your repo: https://your-repo-name.prismic.io/)
-  prismicRepo: 'https://gatsby-multi-language-example.wroom.io',
+  prismicRepo: 'https://multi-language-example.prismic.io/api',
 
   // For prismic theme command <https://user-guides.prismic.io/en/articles/764581-how-to-create-a-theme-to-quickstart-your-projects-for-prismic>
 
