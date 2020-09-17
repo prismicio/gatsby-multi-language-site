@@ -20,7 +20,7 @@ const gastbySourcePrismicConfig = {
     repositoryName: process.env.PRISMIC_REPO_NAME,
     accessToken: apiKey,
     linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
-
+    previewPath,
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,
