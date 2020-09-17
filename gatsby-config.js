@@ -4,7 +4,7 @@ const linkResolver = require('./src/utils/linkResolver')
 
 process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
 
-process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath
+process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath || ''
 
 
 
