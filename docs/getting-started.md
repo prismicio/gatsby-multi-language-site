@@ -4,13 +4,11 @@
 [Prismic](https://prismic.io) is a headless CMS that content editors can use to edit and publish content. Gatsby Cloud allows you to integrate your site with Prismic in order to run efficient builds and preview content changes made in the CMS before publishing.
 
 ## Create a and configure a Prismic project
-If you've not already done so create an account with [Prismic](https://prismic.io).For this set of instructions we'll be using the [prismic-cli](https://github.com/prismicio/prismic-cli).The cli can be installed with `npm install -g prismic-cli`. 
+If you've not already done so, create an account with [Prismic](https://prismic.io). . 
 
-These steps will help you create a prismic repository, 
-1. Login to prismic-cli with you username and password `prismic login`.
-2. Run the theme command to use this project a starter `prismic theme --theme-url https://github.com/MarcMcIntosh/gatsby-multi-language-site`.
-3. choice a name for your repository and update it in the `prismic-configuration.js`
-
+1. Install the prismic-cli](https://github.com/prismicio/prismic-cli): `npm install -g prismic-cli`. 
+2. Login to prismic-cli with you username and password `prismic login`.
+2. Run this multilanguage starter project `prismic theme --theme-url https://github.com/MarcMcIntosh/gatsby-multi-language-site --conf prismic-configuration.js`.
 4. Go to [prismic.io](https://prismic.io) and select dash board and find the repository in the dashboard.
 5. Select the repository in the dash board and select the master language.
 6. Update `prismic-configuration.js` with the master language in the `defaultLanguage` property.
