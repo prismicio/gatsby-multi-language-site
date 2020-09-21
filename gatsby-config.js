@@ -1,4 +1,3 @@
-// const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
 const { prismicRepo, previewPath, releaseID, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
