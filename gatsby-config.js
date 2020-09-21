@@ -3,12 +3,9 @@ const { prismicRepo, previewPath, releaseID, accessToken } = require('./prismic-
 const linkResolver = require('./src/utils/linkResolver')
 
 const reponame = process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
-
-// const previewPath = process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath
-
 const apiKey = process.env.PRISMIC_API_KEY || accessToken
-
-const releaseIDs = process.env.PRISMIC_RELEASE_ID || releaseID || ''
+const prismicPreviewPath = process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath
+const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID || ''
 
 const homepageSchema = require('./custom_types/homepage.json')
 const pageSchema = require('./custom_types/page.json')
@@ -20,15 +17,14 @@ const gastbySourcePrismicConfig = {
     repositoryName: reponame,
     accessToken: apiKey,
     linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
-    
+    prismicReleaseID,
+    prismicPreviewPath,
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,
       page: pageSchema,
       top_menu: topMenuSchema,
     },
-
-    // releaseID: releaseIDs,
     // add prismic toolbar
     prismicToolbar: true,
   },
