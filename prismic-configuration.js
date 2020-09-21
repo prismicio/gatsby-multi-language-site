@@ -3,7 +3,6 @@ module.exports = {
   // Confguration for dev.
   
   // The repo name for your Prismic repository (found in the url of your repo: https://your-repo-name.prismic.io/)
-  
   prismicRepo: 'multilanguage-examples',
   
 
