@@ -15,8 +15,8 @@ const gastbySourcePrismicConfig = {
   options: {
     repositoryName: reponame,
     accessToken: apiKey,
-    linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
     prismicReleaseID,
+    linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,
