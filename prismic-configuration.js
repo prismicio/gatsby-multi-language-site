@@ -19,6 +19,6 @@ module.exports = {
 //   accessToken: "",
 
   // Language configuration in your Prismic repository: Settings / Translations & locals
-  defaultLanguage: 'en-us',
-  langs: ['en-us', 'fr-fr'],
+  defaultLanguage: 'en-gb',
+  langs: ['en-gb', 'fr-fr'],
 }
