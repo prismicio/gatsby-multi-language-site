@@ -10,7 +10,7 @@ Check out [this article](https://user-guides.prismic.io/en/articles/3601217-mult
 ### What is Gatsby Cloud and Prismic, and why use them together?
 [Prismic](https://prismic.io) is a headless CMS that content editors can use to edit and publish content. Gatsby Cloud allows you to integrate your site with Prismic in order to run efficient builds and preview content changes made in the CMS before publishing.
 
-[Read how to integrate Prismic with Gatsby Cloud here!](https://app.intercom.com/a/apps/bnnh3u9v/articles/articles/4464959/show)
+[Read Getting started with Gatsby Cloud and Prismic](https://user-guides.prismic.io/en/articles/4464959-getting-started-with-gatsby-cloud-and-prismic)
 
 ## Learn more about using Prismic with Gatsby.js
 
