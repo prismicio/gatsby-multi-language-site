@@ -9,7 +9,6 @@ export const PageTemplate = ({ data }) => {
 
   const pageContent = data.prismicPage
   const page = pageContent.data || {}
-  console.log(page.body)
 
   const { lang, type, url } = pageContent
   const alternateLanguages = pageContent.alternate_languages || []
