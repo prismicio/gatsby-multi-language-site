@@ -9,6 +9,7 @@ export const PageTemplate = ({ data }) => {
 
   const pageContent = data.prismicPage
   const page = pageContent.data || {}
+  console.log(page.body)
 
   const { lang, type, url } = pageContent
   const alternateLanguages = pageContent.alternate_languages || []
@@ -86,6 +87,32 @@ query pageQuery($uid: String, $lang: String) {
           primary {
             background_image_position
             image {
+              alt
+              copyright
+              url
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
+        ... on PrismicPageBodyHeadlineWithButton {
+          id
+          slice_type
+          slice_label
+          primary {
+            headline {
+              html
+              raw
+              text
+            }
+            description {
+              html
+              raw
+              text
+            }
+            button {
               alt
               copyright
               url
