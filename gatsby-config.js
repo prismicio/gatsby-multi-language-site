@@ -2,13 +2,9 @@
 const { prismicRepo, previewPath, releaseID, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
-process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
-
-process.env.PRISMIC_PREVIEW_PATH = process.env.PRISMIC_PREVIEW_PATH || previewPath || ''
-
-
-
+const reponame = process.env.PRISMIC_REPO_NAME = process.env.PRISMIC_REPO_NAME || prismicRepo
 const apiKey = process.env.PRISMIC_API_KEY || accessToken
+const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID || ''
 
 const homepageSchema = require('./custom_types/homepage.json')
 const pageSchema = require('./custom_types/page.json')
@@ -17,18 +13,16 @@ const topMenuSchema = require('./custom_types/top_menu.json')
 const gastbySourcePrismicConfig = {
   resolve: 'gatsby-source-prismic',
   options: {
-    repositoryName: process.env.PRISMIC_REPO_NAME,
+    repositoryName: reponame,
     accessToken: apiKey,
+    releaseID: prismicReleaseID,
     linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
-    previewPath,
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,
       page: pageSchema,
       top_menu: topMenuSchema,
     },
-
-    releaseID: process.env.PRISMIC_RELEASE_ID || releaseID || '',
     // add prismic toolbar
     prismicToolbar: true,
   },

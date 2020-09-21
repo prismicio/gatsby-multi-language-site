@@ -96,6 +96,32 @@ query pageQuery($uid: String, $lang: String) {
             }
           }
         }
+        ... on PrismicPageBodyHeadlineWithButton {
+          id
+          slice_type
+          slice_label
+          primary {
+            headline {
+              html
+              raw
+              text
+            }
+            description {
+              html
+              raw
+              text
+            }
+            button {
+              alt
+              copyright
+              url
+              dimensions {
+                height
+                width
+              }
+            }
+          }
+        }
         ... on PrismicPageBodyInfoWithImage {
           id
           slice_label
