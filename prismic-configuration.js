@@ -10,13 +10,13 @@ module.exports = {
   // For prismic theme command <https://user-guides.prismic.io/en/articles/764581-how-to-create-a-theme-to-quickstart-your-projects-for-prismic>
 
   // Preview path for handling redirects.
-  previewPath: '',
+//   previewPath: '',
 
   // Release ID to build (requires access)
-  releaseID: '',
+//   releaseID: '',
 
   // access token to access the release
-  accessToken: "",
+//   accessToken: "",
 
   // Language configuration in your Prismic repository: Settings / Translations & locals
   defaultLanguage: 'en-us',
