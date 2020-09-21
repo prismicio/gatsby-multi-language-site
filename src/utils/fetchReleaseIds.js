@@ -1,5 +1,5 @@
 const https = require('https')
-const { prismicRepo, accessToken } = require('../prismic-configuration')
+const { prismicRepo, accessToken } = require('../../prismic-configuration')
 
 const apiEndpoint = `https:/${prismicRepo}.prismic.io/api?access_token=${accessToken}`
 
