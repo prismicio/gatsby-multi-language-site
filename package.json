@@ -12,7 +12,7 @@
     "gatsby-plugin-sass": "^2.3.4",
     "gatsby-plugin-sharp": "^2.6.12",
     "gatsby-source-filesystem": "^2.3.12",
-    "gatsby-source-prismic": "github:MarcMcIntosh/gatsby-source-prismic#with-dist",
+    "gatsby-source-prismic": "^3.3.0",
     "gatsby-transformer-sharp": "^2.5.5",
     "node-sass": "^4.14.1",
     "prismic-javascript": "^2.7.1",
