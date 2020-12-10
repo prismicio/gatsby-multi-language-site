@@ -5,10 +5,10 @@ module.exports = {
   prismicRepo: 'your-repo-name',
 
   // Release ID to build (requires access)
-  // releaseID: '',
+  releaseID: '',
 
   // access token to access the release
-  // accessToken: "",
+  accessToken: '',
 
   // Language configuration in your Prismic repository: Settings / Translations & locals
   defaultLanguage: 'en-us',
