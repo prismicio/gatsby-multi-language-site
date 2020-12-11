@@ -129,11 +129,16 @@ query pageQuery($uid: String, $lang: String) {
           primary {
             featured_image {
               alt
-              copyright
               url
-              dimensions {
-                height
-                width
+              thumbnails {
+                mobile {
+                  alt
+                  url
+                }
+                tablet {
+                  alt
+                  url
+                }
               }
             }
             section_title {

@@ -5,18 +5,19 @@ import topIcon from '../../images/top-icon.png'
 
 const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image
+  console.log(featuredImage)
   return (
     <section className="info-with-image">
       <div className="featured-image">
         <picture>
           <source
-            srcSet={featuredImage ? featuredImage.url : ''}
-            alt={featuredImage ? featuredImage.alt : ''}
+            srcSet={featuredImage ? featuredImage.thumbnails.mobile.url : ''}
+            alt={featuredImage ? featuredImage.thumbnails.mobile.alt : ''}
             media="(max-width: 500px)"
           />
           <source
-            srcSet={featuredImage ? featuredImage.url : ''}
-            alt={featuredImage ? featuredImage.alt : ''}
+            srcSet={featuredImage ? featuredImage.thumbnails.tablet.url : ''}
+            alt={featuredImage ? featuredImage.thumbnails.tablet.alt : ''}
             media="(max-width: 1100px)"
           />
           <img

@@ -131,11 +131,18 @@ query homepageQuery($lang: String) {
           primary {
             featured_image {
               url
-              fluid {
-                src
-              }
               alt
               copyright
+              thumbnails {
+                mobile {
+                  alt
+                  url
+                }
+                tablet {
+                  alt
+                  url
+                }
+              }
             }
             section_title {
               text
