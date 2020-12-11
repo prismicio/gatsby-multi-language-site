@@ -5,7 +5,6 @@ import topIcon from '../../images/top-icon.png'
 
 const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image
-  console.log(featuredImage)
   return (
     <section className="info-with-image">
       <div className="featured-image">
