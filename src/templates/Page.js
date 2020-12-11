@@ -1,137 +1,188 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { withPreview } from 'gatsby-source-prismic'
 import Layout from '../components/Layout'
 import SliceZone from '../components/SliceZone'
 
-const Page = ({ data }) => {
-  const pageContent = data.prismic.allPages.edges[0]
-  if (!pageContent) return null
-  const page = pageContent.node
+export const PageTemplate = ({ data }) => {
+  if (!data) return null
 
-  const topMenuContent = data.prismic.allTop_menus.edges[0]
-  if (!topMenuContent) return null
-  const topMenu = topMenuContent.node
+  const pageContent = data.prismicPage
+  const page = pageContent.data || {}
 
-  if (page) {
-    return (
-      <Layout
-        topMenu={topMenu}
-        activeDocMeta={page._meta}
-      >
-        <SliceZone slices={page.body} />
-      </Layout>
-    )
+  const { lang, type, url } = pageContent
+  const alternateLanguages = pageContent.alternate_languages || []
+  const activeDoc = {
+    lang,
+    type,
+    url,
+    alternateLanguages,
   }
-  return null
+  const topMenu = data.prismicTopMenu || {}
+
+  return (
+    <Layout
+      topMenu={topMenu.data}
+      activeDocMeta={activeDoc}
+    >
+      <SliceZone slices={page.body} />
+    </Layout>
+  )
 }
 
 export const query = graphql`
 query pageQuery($uid: String, $lang: String) {
-  prismic {
-    allPages(uid: $uid, lang: $lang) {
-      edges {
-        node {
-          _meta {
-            id
-            uid
-            type
-            lang
-            alternateLanguages {
-              id
-              lang
-              type
-              uid
+  prismicPage(uid: {eq: $uid}, lang: {eq: $lang}) {
+    url
+    uid
+    type
+    id
+    lang
+    alternate_languages {
+      id
+      type
+      lang
+      uid
+      url
+    }
+    data {
+      body {
+        ... on PrismicPageBodyEmailSignup {
+          id
+          slice_label
+          slice_type
+          primary {
+            section_title {
+              html
+              raw
+              text
+            }
+            input_placeholder {
+              html
+              raw
+              text
+            }
+            input_label {
+              html
+              raw
+              text
+            }
+            description {
+              html
+              raw
+              text
+            }
+            button_text {
+              html
+              raw
+              text
             }
           }
-          body {
-            ... on PRISMIC_PageBodyEmail_signup {
-              type
-              label
-              primary {
-                section_title
-                description
-                input_label
-                input_placeholder
-                button_text
+        }
+        ... on PrismicPageBodyFullWidthImage {
+          id
+          slice_type
+          slice_label
+          primary {
+            background_image_position
+            image {
+              alt
+              copyright
+              url
+              dimensions {
+                height
+                width
               }
             }
-            ... on PRISMIC_PageBodyFull_width_image {
-              type
-              label
-              primary {
-                background_image_position
-                image
+          }
+        }
+        ... on PrismicPageBodyHeadlineWithButton {
+          id
+          slice_type
+          slice_label
+          primary {
+            headline {
+              html
+              raw
+              text
+            }
+            description {
+              html
+              raw
+              text
+            }
+            button {
+              alt
+              copyright
+              url
+              dimensions {
+                height
+                width
               }
             }
-            ... on PRISMIC_PageBodyHeadline_with_button {
-              type
-              label
-              primary {
-                headline
-                description
-                button
+          }
+        }
+        ... on PrismicPageBodyInfoWithImage {
+          id
+          slice_label
+          slice_type
+          primary {
+            featured_image {
+              alt
+              url
+              thumbnails {
+                mobile {
+                  alt
+                  url
+                }
+                tablet {
+                  alt
+                  url
+                }
               }
             }
-            ... on PRISMIC_PageBodyInfo_with_image {
-              type
-              label
-              primary {
-                featured_image
-                section_title
-                text
-              }
+            section_title {
+              html
+              raw
+              text
             }
-            ... on PRISMIC_PageBodyText_info {
-              type
-              label
-              primary {
-                section_title
-                left_column_text
-                right_column_text
-              }
+            text {
+              html
+              raw
+              text
+            }
+          }
+        }
+        ... on PrismicPageBodyTextInfo {
+          id
+          slice_label
+          slice_type
+          primary {
+            left_column_text {
+              html
+              raw
+              text
+            }
+            right_column_text {
+              html
+              raw
+              text
+            }
+            section_title {
+              html
+              raw
+              text
             }
           }
         }
       }
     }
-    allTop_menus(lang: $lang) {
-      edges {
-        node {
-          menu_links {
-            label
-            link {
-              ... on PRISMIC_Page {
-                _meta {
-                  uid
-                  lang
-                  type
-                  alternateLanguages {
-                    uid
-                    lang
-                    type
-                  }
-                }
-              }
-              ... on PRISMIC_Homepage {
-                _meta {
-                  uid
-                  lang
-                  type
-                  alternateLanguages {
-                    uid
-                    lang
-                    type
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+  }
+  prismicTopMenu(lang: {eq: $lang}) {
+   ...TopMenuFragment
   }
 }
 
 `
 
-export default Page
+export default withPreview(PageTemplate)
