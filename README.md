@@ -1,12 +1,11 @@
 # Prismic & Gatsby multi-language example website 
 
-
 [Gatsby.js](https://www.gatsbyjs.org/) example Multi-language website with content managed in Prismic
+
 ## Check out the dedicated article to get this project up and running
 [Prismic project guide](https://prismic.io/docs/technologies/sample-multi-lang-site-gatsby)
 
 ##  Learn more about using Prismic with Gatsby.js
-
 [Prismic + Gatsby.js Documentation](https://prismic.io/docs/technologies/gatsby)
 
 ## License
