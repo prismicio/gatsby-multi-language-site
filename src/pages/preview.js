@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 import linkResolver from '../utils/linkResolver'
 
-const PreviewPage = ({ isPreview, isLoading }) => {
+const PreviewPage = ({ isPreview }) => {
   if (isPreview === false) return 'Not a preview!'
 
   return (<p>Loading</p>)
@@ -21,6 +21,6 @@ export default (props) => {
   const { repositoryName } = data.sitePlugin.pluginOptions
   return withPreviewResolver(PreviewPage, {
     repositoryName,
-    linkResolver: ({ node, key, value }) => (doc) => linkResolver(doc),
+    linkResolver: () => (doc) => linkResolver(doc),
   })(props)
 }

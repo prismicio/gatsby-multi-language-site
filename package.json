@@ -1,8 +1,7 @@
 {
-  "name": "multi-language-site",
-  "description": "Sample multi-language website with Prismic CMS & Gatsby.js",
-  "version": "0.1.0",
-  "author": "@PaulinaVPG <paulina.gavilan@prismic.io>",
+  "name": "gatsby-multi-language-website",
+  "description": "Multi-language website example with Gatsby.js using Prismic headless CMS",
+  "author": "Prismic",
   "dependencies": {
     "gatsby": "^2.23.7",
     "gatsby-image": "^2.4.7",
@@ -42,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/prismicio/gatsby-multi-language-site"
   }
 }

@@ -53,4 +53,3 @@ fragment TopMenuFragment on PrismicTopMenu {
 `
 
 export default TopMenu
-
