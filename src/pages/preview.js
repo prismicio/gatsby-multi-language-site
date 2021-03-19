@@ -10,7 +10,7 @@ const PreviewPage = ({ isPreview }) => {
   return (<p>Loading</p>)
 }
 
-export default (props) => {
+export default function Preview(props) {
   const data = useStaticQuery(graphql`query {
     sitePlugin(name: {eq: "gatsby-source-prismic"}) {
       pluginOptions {
