@@ -1,6 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby'
-import linkResolver from '../utils/linkResolver'
+import { linkResolver } from '../utils/linkResolver'
 
 const LanguageSwitcher = ({ activeDocMeta }) => {
   const currentLang = activeDocMeta.lang

@@ -1,5 +1,4 @@
 const { prismicRepo, releaseID, accessToken } = require('./prismic-configuration')
-const linkResolver = require('./src/utils/linkResolver')
 
 
 const homepageSchema = require('./custom_types/homepage.json')
@@ -15,6 +14,7 @@ const gastbySourcePrismicConfig = {
     linkResolver: () => (doc) => linkResolver(doc),
     repositoryName: process.env.PRISMIC_REPO_NAME,
     accessToken: process.env.PRISMIC_API_KEY,
+    linkResolver: require('./src/utils/linkResolver').linkResolver,
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,

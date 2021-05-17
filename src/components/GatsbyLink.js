@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { Link } from 'gatsby'
-import linkResolver from '../utils/linkResolver'
+import { linkResolver } from '../utils/linkResolver'
 
 const GatsbyLink = (type, element, content, children, index) => {
   if (element.data.link_type === 'Document') {
