@@ -1,27 +1,15 @@
-
-
-const homepageSchema = require('./custom_types/homepage.json')
-const pageSchema = require('./custom_types/page.json')
-const topMenuSchema = require('./custom_types/top_menu.json')
-
 const gastbySourcePrismicConfig = {
   resolve: 'gatsby-source-prismic',
   options: {
-    repositoryName: reponame,
-    accessToken: apiKey,
-    releaseID: prismicReleaseID,
-    linkResolver: () => (doc) => linkResolver(doc),
     repositoryName: process.env.PRISMIC_REPO_NAME,
     accessToken: process.env.PRISMIC_API_KEY,
     linkResolver: require('./src/utils/linkResolver').linkResolver,
     schemas: {
       // Custom types mapped to schemas
-      homepage: homepageSchema,
-      page: pageSchema,
-      top_menu: topMenuSchema,
+      homepage: require('./custom_types/homepage.json'),
+      page: require('./custom_types/page.json'),
+      top_menu: require('./custom_types/top_menu.json'),
     },
-    // add prismic toolbar
-    prismicToolbar: true,
   },
 }
 
