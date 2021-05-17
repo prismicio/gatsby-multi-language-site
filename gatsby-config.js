@@ -1,4 +1,3 @@
-const { prismicRepo, releaseID, accessToken } = require('./prismic-configuration')
 
 
 const homepageSchema = require('./custom_types/homepage.json')
