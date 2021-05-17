@@ -3,24 +3,26 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const pages = await graphql(`{
-    allPrismicPage {
-      nodes {
-        id
-        uid
-        lang
-        type
-        url
+  const pages = await graphql(`
+    {
+      allPrismicPage {
+        nodes {
+          id
+          uid
+          lang
+          type
+          url
+        }
+      }
+      allPrismicHomepage {
+        nodes {
+          url
+          type
+          lang
+        }
       }
     }
-    allPrismicHomepage {
-      nodes {
-        url
-        type
-        lang
-      }
-    }
-  }`)
+  `)
 
   pages.data.allPrismicPage.nodes.forEach((page) => {
     createPage({

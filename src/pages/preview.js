@@ -7,17 +7,19 @@ import { linkResolver } from '../utils/linkResolver'
 const PreviewPage = ({ isPreview }) => {
   if (isPreview === false) return 'Not a preview!'
 
-  return (<p>Loading</p>)
+  return <p>Loading</p>
 }
 
 export default function Preview(props) {
-  const data = useStaticQuery(graphql`query {
-    sitePlugin(name: {eq: "gatsby-source-prismic"}) {
-      pluginOptions {
-        repositoryName
+  const data = useStaticQuery(graphql`
+    query {
+      sitePlugin(name: { eq: "gatsby-source-prismic" }) {
+        pluginOptions {
+          repositoryName
+        }
       }
     }
-  }`)
+  `)
   const { repositoryName } = data.sitePlugin.pluginOptions
   return withPreviewResolver(PreviewPage, {
     repositoryName,

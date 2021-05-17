@@ -15,7 +15,8 @@ const Layout = ({ children, topMenu, activeDocMeta }) => {
           description
         }
       }
-    }`)
+    }
+  `)
 
   return (
     <>
