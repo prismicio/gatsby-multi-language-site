@@ -1,9 +1,6 @@
 const { prismicRepo, releaseID, accessToken } = require('./prismic-configuration')
 const linkResolver = require('./src/utils/linkResolver')
 
-const reponame = process.env.PRISMIC_REPO_NAME || prismicRepo
-const apiKey = process.env.PRISMIC_API_KEY || accessToken
-const prismicReleaseID = process.env.PRISMIC_RELEASE_ID || releaseID
 
 const homepageSchema = require('./custom_types/homepage.json')
 const pageSchema = require('./custom_types/page.json')
@@ -16,6 +13,8 @@ const gastbySourcePrismicConfig = {
     accessToken: apiKey,
     releaseID: prismicReleaseID,
     linkResolver: () => (doc) => linkResolver(doc),
+    repositoryName: process.env.PRISMIC_REPO_NAME,
+    accessToken: process.env.PRISMIC_API_KEY,
     schemas: {
       // Custom types mapped to schemas
       homepage: homepageSchema,
