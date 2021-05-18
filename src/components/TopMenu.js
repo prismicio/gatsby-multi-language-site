@@ -36,6 +36,7 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
 
 export const query = graphql`
   fragment TopMenuFragment on PrismicTopMenu {
+    _previewable
     type
     lang
     data {
