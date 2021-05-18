@@ -1,8 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { navigate } from 'gatsby'
+
 import { linkResolver } from '../utils/linkResolver'
 
-const LanguageSwitcher = ({ activeDocMeta }) => {
+export const LanguageSwitcher = ({ activeDocMeta }) => {
   const currentLang = activeDocMeta.lang
   const currentLangOption = (
     <option value={currentLang}>{currentLang.slice(0, 2).toUpperCase()}</option>
@@ -29,5 +30,3 @@ const LanguageSwitcher = ({ activeDocMeta }) => {
     </li>
   )
 }
-
-export default LanguageSwitcher

@@ -1,9 +1,12 @@
-import React from 'react'
+import * as React from 'react'
+import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import GatsbyLink from '../GatsbyLink'
+
+import { GatsbyLink } from '../GatsbyLink'
+
 import topIcon from '../../images/top-icon.png'
 
-const InfoWithImage = ({ slice }) => {
+export const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image
   return (
     <section className="info-with-image">
@@ -37,4 +40,61 @@ const InfoWithImage = ({ slice }) => {
   )
 }
 
-export default InfoWithImage
+export const query = graphql`
+  fragment PageDataBodyInfoWithImage on PrismicPageDataBodyInfoWithImage {
+    primary {
+      featured_image {
+        alt
+        url
+        thumbnails {
+          mobile {
+            alt
+            url
+          }
+          tablet {
+            alt
+            url
+          }
+        }
+      }
+      section_title {
+        html
+        raw
+        text
+      }
+      text {
+        html
+        raw
+        text
+      }
+    }
+  }
+  fragment HomepageDataBodyInfoWithImage on PrismicHomepageDataBodyInfoWithImage {
+    primary {
+      featured_image {
+        alt
+        url
+        thumbnails {
+          mobile {
+            alt
+            url
+          }
+          tablet {
+            alt
+            url
+          }
+        }
+      }
+      section_title {
+        html
+        raw
+        text
+      }
+      text {
+        html
+        raw
+        text
+      }
+    }
+  }
+`

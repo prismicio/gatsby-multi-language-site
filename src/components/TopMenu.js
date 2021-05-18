@@ -1,10 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import LanguageSwitcher from './LanguageSwitcher'
+
+import { LanguageSwitcher } from './LanguageSwitcher'
+
 import logo from '../images/logo.png'
 
-const TopMenu = ({ topMenu, activeDocMeta }) => {
+export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu.menu_links
     ? topMenu.menu_links.map((menuLink, index) => (
         <li key={`top-nav-${index}`}>
@@ -51,5 +53,3 @@ export const query = graphql`
     }
   }
 `
-
-export default TopMenu

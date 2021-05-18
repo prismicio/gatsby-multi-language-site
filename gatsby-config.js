@@ -1,17 +1,9 @@
-const gastbySourcePrismicConfig = {
-  resolve: 'gatsby-source-prismic',
-  options: {
-    repositoryName: process.env.PRISMIC_REPO_NAME,
-    accessToken: process.env.PRISMIC_API_KEY,
-    linkResolver: require('./src/utils/linkResolver').linkResolver,
-    schemas: {
-      // Custom types mapped to schemas
-      homepage: require('./custom_types/homepage.json'),
-      page: require('./custom_types/page.json'),
-      top_menu: require('./custom_types/top_menu.json'),
-    },
-  },
-}
+const path = require('path')
+const dotenv = require('dotenv')
+
+dotenv.config()
+
+const prismicConfig = require('./prismic-configuration')
 
 module.exports = {
   siteMetadata: {
@@ -19,7 +11,26 @@ module.exports = {
     description: 'Sample multi-language website with Prismic CMS & Gatsby.js',
   },
   plugins: [
-    gastbySourcePrismicConfig,
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        linkResolver: require('./src/utils/linkResolver').linkResolver,
+        schemas: {
+          homepage: require('./custom_types/homepage.json'),
+          page: require('./custom_types/page.json'),
+          top_menu: require('./custom_types/top_menu.json'),
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -28,7 +39,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/src/images`,
+        path: path.resolve(__dirname, 'src', 'images'),
       },
     },
     {
@@ -40,7 +51,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png',
+        icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
       },
     },
   ],

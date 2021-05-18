@@ -1,8 +1,10 @@
-import React from 'react'
+import * as React from 'react'
+import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import GatsbyLink from '../GatsbyLink'
 
-const HeadlineWithButton = ({ slice }) => (
+import { GatsbyLink } from '../GatsbyLink'
+
+export const HeadlineWithButton = ({ slice }) => (
   <section className="headline-with-button">
     <div>
       <RichText render={slice.primary.headline.raw || []} />
@@ -20,4 +22,51 @@ const HeadlineWithButton = ({ slice }) => (
   </section>
 )
 
-export default HeadlineWithButton
+export const query = graphql`
+  fragment PageDataBodyHeadlineWithButton on PrismicPageDataBodyHeadlineWithButton {
+    primary {
+      headline {
+        html
+        raw
+        text
+      }
+      description {
+        html
+        raw
+        text
+      }
+      button {
+        alt
+        copyright
+        url
+        dimensions {
+          height
+          width
+        }
+      }
+    }
+  }
+  fragment HomepageDataBodyHeadlineWithButton on PrismicHomepageDataBodyHeadlineWithButton {
+    primary {
+      headline {
+        html
+        raw
+        text
+      }
+      description {
+        html
+        raw
+        text
+      }
+      button {
+        alt
+        copyright
+        url
+        dimensions {
+          height
+          width
+        }
+      }
+    }
+  }
+`

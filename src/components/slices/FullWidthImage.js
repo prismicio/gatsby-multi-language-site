@@ -1,7 +1,9 @@
-import React from 'react'
+import * as React from 'react'
+import { graphql } from 'gatsby'
+
 import backgroundImage from '../../images/full-width-image-background.png'
 
-const FullWidthImage = ({ slice }) => {
+export const FullWidthImage = ({ slice }) => {
   const imagePosition =
     slice.primary.background_image_position === 'Left' ? 'left-bg' : 'right-bg'
 
@@ -20,4 +22,33 @@ const FullWidthImage = ({ slice }) => {
   )
 }
 
-export default FullWidthImage
+export const query = graphql`
+  fragment PageDataBodyFullWidthImage on PrismicPageDataBodyFullWidthImage {
+    primary {
+      background_image_position
+      image {
+        alt
+        copyright
+        url
+        dimensions {
+          height
+          width
+        }
+      }
+    }
+  }
+  fragment HomepageDataBodyFullWidthImage on PrismicHomepageDataBodyFullWidthImage {
+    primary {
+      background_image_position
+      image {
+        alt
+        copyright
+        url
+        dimensions {
+          height
+          width
+        }
+      }
+    }
+  }
+`

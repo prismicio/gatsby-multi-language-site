@@ -1,8 +1,10 @@
-import React from 'react'
+import * as React from 'react'
+import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
-import GatsbyLink from '../GatsbyLink'
 
-const EmailSignup = ({ slice }) => (
+import { GatsbyLink } from '../GatsbyLink'
+
+export const EmailSignup = ({ slice }) => (
   <section className="email-signup">
     <div className="description">
       <RichText render={slice.primary.section_title.raw || []} />
@@ -28,4 +30,63 @@ const EmailSignup = ({ slice }) => (
   </section>
 )
 
-export default EmailSignup
+export const query = graphql`
+  fragment PageDataBodyEmailSignup on PrismicPageDataBodyEmailSignup {
+    primary {
+      section_title {
+        html
+        raw
+        text
+      }
+      input_placeholder {
+        html
+        raw
+        text
+      }
+      input_label {
+        html
+        raw
+        text
+      }
+      description {
+        html
+        raw
+        text
+      }
+      button_text {
+        html
+        raw
+        text
+      }
+    }
+  }
+  fragment HomepageDataBodyEmailSignup on PrismicHomepageDataBodyEmailSignup {
+    primary {
+      section_title {
+        html
+        raw
+        text
+      }
+      input_placeholder {
+        html
+        raw
+        text
+      }
+      input_label {
+        html
+        raw
+        text
+      }
+      description {
+        html
+        raw
+        text
+      }
+      button_text {
+        html
+        raw
+        text
+      }
+    }
+  }
+`
