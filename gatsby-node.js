@@ -3,40 +3,44 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const pages = await graphql(`
+  const queryData = await graphql(`
     {
       allPrismicPage {
         nodes {
           id
-          uid
           lang
-          type
           url
         }
       }
       allPrismicHomepage {
         nodes {
-          url
-          type
+          id
           lang
+          url
         }
       }
     }
   `)
 
-  pages.data.allPrismicPage.nodes.forEach((page) => {
+  queryData.data.allPrismicPage.nodes.forEach((page) => {
     createPage({
       path: page.url,
-      component: path.resolve(__dirname, 'src/templates/Page.js'),
-      context: { ...page },
+      component: path.resolve(__dirname, 'src/templates/page.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
     })
   })
 
-  pages.data.allPrismicHomepage.nodes.forEach((page) => {
+  queryData.data.allPrismicHomepage.nodes.forEach((page) => {
     createPage({
       path: page.url,
-      component: path.resolve(__dirname, 'src/templates/Homepage.js'),
-      context: { ...page },
+      component: path.resolve(__dirname, 'src/templates/homepage.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
     })
   })
 }

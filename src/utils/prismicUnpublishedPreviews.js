@@ -10,8 +10,8 @@ import { componentResolverFromMap } from 'gatsby-plugin-prismic-previews'
 import { prismicRepo } from '../../prismic-configuration'
 import { linkResolver } from './linkResolver'
 
-import PageTemplate from '../templates/Page'
-import HomepageTemplate from '../templates/Homepage'
+import PageTemplate from '../templates/page'
+import HomepageTemplate from '../templates/homepage'
 
 /**
  * Prismic preview configuration for each repository in your app. This set of
