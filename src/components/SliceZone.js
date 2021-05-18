@@ -6,7 +6,7 @@ import {
   HeadlineWithButton,
   InfoWithImage,
   TextInfo,
-} from './slices'
+} from '../slices'
 
 export const SliceZone = ({ slices }) => {
   const sliceComponents = {

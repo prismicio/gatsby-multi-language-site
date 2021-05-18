@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 
-import backgroundImage from '../../images/full-width-image-background.png'
+import backgroundImage from '../images/full-width-image-background.png'
 
 export const FullWidthImage = ({ slice }) => {
   const imagePosition =

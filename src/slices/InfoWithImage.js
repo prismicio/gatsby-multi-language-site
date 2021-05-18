@@ -2,9 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 
-import { GatsbyLink } from '../GatsbyLink'
+import { GatsbyLink } from '../components/GatsbyLink'
 
-import topIcon from '../../images/top-icon.png'
+import topIcon from '../images/top-icon.png'
 
 export const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image

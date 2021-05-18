@@ -2,7 +2,7 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
 
-import { GatsbyLink } from '../GatsbyLink'
+import { GatsbyLink } from '../components/GatsbyLink'
 
 export const HeadlineWithButton = ({ slice }) => (
   <section className="headline-with-button">
