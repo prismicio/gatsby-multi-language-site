@@ -2,7 +2,7 @@
  * This file contains configuration for `gatsby-plugin-prismic-previews` to
  * support preview sessions from Prismic.
  *
- * @see https://github.com/angeloashmore/gatsby-source-prismic/tree/alpha/packages/gatsby-plugin-prismic-previews
+ * @see https://prismic.io/docs/technologies/previews-gatsby
  */
 
 import { prismicRepo } from '../../prismic-configuration'
@@ -16,7 +16,7 @@ import { linkResolver } from './linkResolver'
  * If your app needs to support multiple Prismic repositories, add each of
  * their own configuration objects here as additional elements.
  *
- * @see https://github.com/angeloashmore/gatsby-source-prismic/tree/alpha/packages/gatsby-plugin-prismic-previews#content-pages-and-templates
+ * @see https://prismic.io/docs/technologies/previews-gatsby#1.-update-content-pages-and-templates
  */
 export const repositoryConfigs = [
   {
