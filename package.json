@@ -5,7 +5,7 @@
   "dependencies": {
     "gatsby": "^3.5.0",
     "gatsby-image": "^3.5.0",
-    "gatsby-plugin-image": "^1.5.0",
+    "gatsby-plugin-image": "^1.10.1",
     "gatsby-plugin-manifest": "^3.5.0",
     "gatsby-plugin-prismic-previews": "^4.0.0-alpha.10",
     "gatsby-plugin-react-helmet": "^4.5.0",

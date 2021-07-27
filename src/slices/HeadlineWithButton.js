@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { GatsbyLink } from '../components/GatsbyLink'
 
@@ -14,9 +15,9 @@ export const HeadlineWithButton = ({ slice }) => (
       />
     </div>
     <div className="button">
-      <img
-        src={slice.primary.button ? slice.primary.button.url : ''}
-        alt={slice.primary.button ? slice.primary.button.alt : ''}
+      <GatsbyImage
+        image={slice.primary.button?.gatsbyImageData}
+        alt={slice.primary.button?.alt}
       />
     </div>
   </section>
@@ -36,9 +37,9 @@ export const query = graphql`
         text
       }
       button {
+        gatsbyImageData
         alt
         copyright
-        url
         dimensions {
           height
           width
@@ -59,9 +60,9 @@ export const query = graphql`
         text
       }
       button {
+        gatsbyImageData
         alt
         copyright
-        url
         dimensions {
           height
           width

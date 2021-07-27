@@ -20,11 +20,32 @@
       margin-right: 60px;
     }
 
-    img {
-      width: 100%;
+    .mobile-thumbnail {
+      display: block;
 
-      @media only screen and (min-width: $min-width-l) {
-        width: 516px;
+      @media (min-width: $min-width-md) {
+        display: none;
+      }
+    }
+
+    .tablet-thumbnail {
+      display: none;
+
+      @media (min-width: $min-width-md) {
+        display: block;
+      }
+
+      @media (min-width: $min-width-l) {
+        display: none;
+      }
+    }
+
+    .desktop {
+      display: none;
+      width: 516px;
+
+      @media (min-width: $min-width-l) {
+        display: block;
       }
     }
   }
