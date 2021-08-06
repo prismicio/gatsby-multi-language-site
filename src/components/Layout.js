@@ -1,13 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
-import TopMenu from './TopMenu'
-import Footer from './Footer'
-import '../stylesheets/main.scss'
+import { TopMenu } from './TopMenu'
+import { Footer } from './Footer'
 
-const Layout = ({ children, topMenu, activeDocMeta }) => {
-  const data = useStaticQuery(graphql`
+export const Layout = ({ children, topMenu, activeDocMeta }) => {
+  const queryData = useStaticQuery(graphql`
     query SiteQuery {
       site {
         siteMetadata {
@@ -15,14 +14,18 @@ const Layout = ({ children, topMenu, activeDocMeta }) => {
           description
         }
       }
-    }`)
+    }
+  `)
 
   return (
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{data.site.siteMetadata.title}</title>
-        <meta name="description" content={data.site.siteMetadata.description} />
+        <title>{queryData.site.siteMetadata.title}</title>
+        <meta
+          name="description"
+          content={queryData.site.siteMetadata.description}
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
           href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900"
@@ -40,5 +43,3 @@ const Layout = ({ children, topMenu, activeDocMeta }) => {
     </>
   )
 }
-
-export default Layout

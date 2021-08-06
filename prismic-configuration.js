@@ -1,16 +1,17 @@
+/**
+ * This file is used for setting up and connecting to Prismic.
+ */
 
 module.exports = {
-  
-  // The repo name for your Prismic repository (found in the url of your repo: https://your-repo-name.prismic.io/)
-  prismicRepo: 'your-repo-name',
+  // The domain name of your Prismic repository. This can be found in the URL of
+  // your repository.
+  //
+  // Example: 'my-repo' if your Prismic repository URL is 'my-repo.prismic.io'.
+  prismicRepo: 'gatsby-multi-language-site-angeloashmore',
 
-  // Release ID to build (requires access)
-  releaseID: '',
-
-  // access token to access the release
-  accessToken: '',
-
-  // Language configuration in your Prismic repository: Settings / Translations & locals
+  // The default language for content in your Prismic repository.
   defaultLanguage: 'en-us',
+
+  // All available languages for content in your Prismic repository.
   langs: ['en-us', 'fr-fr'],
 }
