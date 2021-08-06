@@ -2,7 +2,7 @@
  * This file contains configuration for `gatsby-plugin-prismic-previews` to
  * support preview sessions from Prismic with unpublished documents.
  *
- * @see https://github.com/angeloashmore/gatsby-source-prismic/tree/alpha/packages/gatsby-plugin-prismic-previews
+ * @see https://prismic.io/docs/technologies/previews-gatsby
  */
 
 import { componentResolverFromMap } from 'gatsby-plugin-prismic-previews'
@@ -21,7 +21,7 @@ import HomepageTemplate from '../templates/homepage'
  * If your app needs to support multiple Prismic repositories, add each of
  * their own configuration objects here as additional elements.
  *
- * @see https://github.com/angeloashmore/gatsby-source-prismic/tree/alpha/packages/gatsby-plugin-prismic-previews#404-not-found-page
+ * @see https://prismic.io/docs/technologies/previews-gatsby#3.-404-not-found-page
  */
 export const unpublishedRepositoryConfigs = [
   {

@@ -33,7 +33,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,scss,md}\"",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run dev",
+    "start": "npm run clean && npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "start:prod": "npm run clean && npm run build && npm run serve"
