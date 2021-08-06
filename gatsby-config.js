@@ -33,6 +33,9 @@ module.exports = {
     },
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',

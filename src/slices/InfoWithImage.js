@@ -1,35 +1,37 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { RichText } from 'prismic-reactjs'
 
 import { GatsbyLink } from '../components/GatsbyLink'
-
-import topIcon from '../images/top-icon.png'
 
 export const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image
   return (
     <section className="info-with-image">
       <div className="featured-image">
-        <picture>
-          <source
-            srcSet={featuredImage ? featuredImage.thumbnails.mobile.url : ''}
-            alt={featuredImage ? featuredImage.thumbnails.mobile.alt : ''}
-            media="(max-width: 500px)"
-          />
-          <source
-            srcSet={featuredImage ? featuredImage.thumbnails.tablet.url : ''}
-            alt={featuredImage ? featuredImage.thumbnails.tablet.alt : ''}
-            media="(max-width: 1100px)"
-          />
-          <img
-            src={featuredImage ? featuredImage.url : ''}
-            alt={featuredImage ? featuredImage.alt : ''}
-          />
-        </picture>
+        <GatsbyImage
+          image={featuredImage?.thumbnails?.mobile?.gatsbyImageData}
+          alt={featuredImage?.alt}
+          className="mobile-thumbnail"
+        />
+        <GatsbyImage
+          image={featuredImage?.thumbnails?.tablet?.gatsbyImageData}
+          alt={featuredImage?.alt}
+          className="tablet-thumbnail"
+        />
+        <GatsbyImage
+          image={featuredImage?.gatsbyImageData}
+          alt={featuredImage?.alt}
+          className="desktop"
+        />
       </div>
       <div className="text-content">
-        <img src={topIcon} alt="Checkbox icon" />
+        <StaticImage
+          src="../images/top-icon.png"
+          alt="Checkbox icon"
+          placeholder="none"
+        />
         <RichText render={slice.primary.section_title.raw || []} />
         <RichText
           render={slice.primary.text.raw || []}
@@ -44,16 +46,19 @@ export const query = graphql`
   fragment PageDataBodyInfoWithImage on PrismicPageDataBodyInfoWithImage {
     primary {
       featured_image {
-        alt
         url
+        gatsbyImageData
+        alt
         thumbnails {
           mobile {
-            alt
             url
+            gatsbyImageData
+            alt
           }
           tablet {
-            alt
             url
+            gatsbyImageData
+            alt
           }
         }
       }
@@ -72,16 +77,16 @@ export const query = graphql`
   fragment HomepageDataBodyInfoWithImage on PrismicHomepageDataBodyInfoWithImage {
     primary {
       featured_image {
+        gatsbyImageData
         alt
-        url
         thumbnails {
           mobile {
+            gatsbyImageData
             alt
-            url
           }
           tablet {
+            gatsbyImageData
             alt
-            url
           }
         }
       }

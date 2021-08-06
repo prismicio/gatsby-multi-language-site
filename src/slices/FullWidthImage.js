@@ -1,7 +1,6 @@
 import * as React from 'react'
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
 import { graphql } from 'gatsby'
-
-import backgroundImage from '../images/full-width-image-background.png'
 
 export const FullWidthImage = ({ slice }) => {
   const imagePosition =
@@ -10,13 +9,17 @@ export const FullWidthImage = ({ slice }) => {
   return (
     <section className="full-width-image auto-grid">
       <div className="main-img">
-        <img
-          src={slice.primary.image ? slice.primary.image.url : ''}
-          alt={slice.primary.image ? slice.primary.image.alt : ''}
+        <GatsbyImage
+          image={slice.primary.image?.gatsbyImageData}
+          alt={slice.primary.image?.alt}
         />
       </div>
       <div className={`background ${imagePosition}`}>
-        <img src={backgroundImage} alt="Background pattern" />
+        <StaticImage
+          src="../images/full-width-image-background.png"
+          alt="Background pattern"
+          placeholder="none"
+        />
       </div>
     </section>
   )
@@ -27,13 +30,9 @@ export const query = graphql`
     primary {
       background_image_position
       image {
+        gatsbyImageData
         alt
         copyright
-        url
-        dimensions {
-          height
-          width
-        }
       }
     }
   }
@@ -41,13 +40,9 @@ export const query = graphql`
     primary {
       background_image_position
       image {
+        gatsbyImageData
         alt
         copyright
-        url
-        dimensions {
-          height
-          width
-        }
       }
     }
   }

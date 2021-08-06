@@ -1,10 +1,9 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import { RichText } from 'prismic-reactjs'
+import { StaticImage } from 'gatsby-plugin-image'
 
 import { LanguageSwitcher } from './LanguageSwitcher'
-
-import logo from '../images/logo.png'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu.menu_links
@@ -21,7 +20,12 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
     <header>
       <div className="menu">
         <Link to="/">
-          <img className="logo" src={logo} alt="Site logo" />
+          <StaticImage
+            src="../images/logo.png"
+            alt="Site logo"
+            placeholder="none"
+            className="logo"
+          />
         </Link>
       </div>
       <div className="menu">
