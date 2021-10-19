@@ -32,18 +32,9 @@ module.exports = {
       },
     },
     'gatsby-plugin-image',
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: path.resolve(__dirname, 'src', 'images'),
-      },
-    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -54,6 +45,13 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: path.resolve(__dirname, 'src', 'images'),
       },
     },
   ],

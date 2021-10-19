@@ -2,8 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
-import { repositoryConfigs } from '../utils/prismicPreviews'
-
 import { Layout } from '../components/Layout'
 import { SliceZone } from '../components/SliceZone'
 
@@ -62,4 +60,4 @@ export const query = graphql`
   }
 `
 
-export default withPrismicPreview(HomepageTemplate, repositoryConfigs)
+export default withPrismicPreview(HomepageTemplate)

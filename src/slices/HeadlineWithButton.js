@@ -8,9 +8,9 @@ import { GatsbyLink } from '../components/GatsbyLink'
 export const HeadlineWithButton = ({ slice }) => (
   <section className="headline-with-button">
     <div>
-      <RichText render={slice.primary.headline.raw || []} />
+      <RichText render={slice.primary.headline.richText || []} />
       <RichText
-        render={slice.primary.description.raw || []}
+        render={slice.primary.description.richText || []}
         serializeHyperlink={GatsbyLink}
       />
     </div>
@@ -27,14 +27,10 @@ export const query = graphql`
   fragment PageDataBodyHeadlineWithButton on PrismicPageDataBodyHeadlineWithButton {
     primary {
       headline {
-        html
-        raw
-        text
+        richText
       }
       description {
-        html
-        raw
-        text
+        richText
       }
       button {
         gatsbyImageData
@@ -50,14 +46,10 @@ export const query = graphql`
   fragment HomepageDataBodyHeadlineWithButton on PrismicHomepageDataBodyHeadlineWithButton {
     primary {
       headline {
-        html
-        raw
-        text
+        richText
       }
       description {
-        html
-        raw
-        text
+        richText
       }
       button {
         gatsbyImageData

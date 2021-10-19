@@ -32,9 +32,9 @@ export const InfoWithImage = ({ slice }) => {
           alt="Checkbox icon"
           placeholder="none"
         />
-        <RichText render={slice.primary.section_title.raw || []} />
+        <RichText render={slice.primary.section_title.richText || []} />
         <RichText
-          render={slice.primary.text.raw || []}
+          render={slice.primary.text.richText || []}
           serializeHyperlink={GatsbyLink}
         />
       </div>
@@ -63,14 +63,10 @@ export const query = graphql`
         }
       }
       section_title {
-        html
-        raw
-        text
+        richText
       }
       text {
-        html
-        raw
-        text
+        richText
       }
     }
   }
@@ -91,14 +87,10 @@ export const query = graphql`
         }
       }
       section_title {
-        html
-        raw
-        text
+        richText
       }
       text {
-        html
-        raw
-        text
+        richText
       }
     }
   }
