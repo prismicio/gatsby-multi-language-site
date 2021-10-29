@@ -7,24 +7,26 @@ import { GatsbyLink } from '../components/GatsbyLink'
 export const EmailSignup = ({ slice }) => (
   <section className="email-signup">
     <div className="description">
-      <RichText render={slice.primary.section_title.raw || []} />
+      <RichText render={slice.primary.section_title.richText || []} />
       <RichText
-        render={slice.primary.description.raw || []}
+        render={slice.primary.description.richText || []}
         serializeHyperlink={GatsbyLink}
       />
     </div>
     <div className="form">
-      <RichText render={slice.primary.input_label.raw || []} />
+      <RichText render={slice.primary.input_label.richText || []} />
       <input
         className="email-input"
         type="text"
         name="FirstName"
-        placeholder={RichText.asText(slice.primary.input_placeholder.raw || [])}
+        placeholder={RichText.asText(
+          slice.primary.input_placeholder.richText || [],
+        )}
       />
       <input
         className="btn"
         type="submit"
-        value={RichText.asText(slice.primary.button_text.raw || [])}
+        value={RichText.asText(slice.primary.button_text.richText || [])}
       />
     </div>
   </section>
@@ -34,58 +36,38 @@ export const query = graphql`
   fragment PageDataBodyEmailSignup on PrismicPageDataBodyEmailSignup {
     primary {
       section_title {
-        html
-        raw
-        text
+        richText
       }
       input_placeholder {
-        html
-        raw
-        text
+        richText
       }
       input_label {
-        html
-        raw
-        text
+        richText
       }
       description {
-        html
-        raw
-        text
+        richText
       }
       button_text {
-        html
-        raw
-        text
+        richText
       }
     }
   }
   fragment HomepageDataBodyEmailSignup on PrismicHomepageDataBodyEmailSignup {
     primary {
       section_title {
-        html
-        raw
-        text
+        richText
       }
       input_placeholder {
-        html
-        raw
-        text
+        richText
       }
       input_label {
-        html
-        raw
-        text
+        richText
       }
       description {
-        html
-        raw
-        text
+        richText
       }
       button_text {
-        html
-        raw
-        text
+        richText
       }
     }
   }

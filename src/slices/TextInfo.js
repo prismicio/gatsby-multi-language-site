@@ -9,15 +9,15 @@ export const TextInfo = ({ slice }) => (
   <section className="text-info">
     <div className="left-column">
       <StaticImage src="../images/top-icon.png" alt="Checkbox icon" />
-      <RichText render={slice.primary.section_title.raw || []} />
+      <RichText render={slice.primary.section_title.richText || []} />
       <RichText
-        render={slice.primary.left_column_text.raw || []}
+        render={slice.primary.left_column_text.richText || []}
         serializeHyperlink={GatsbyLink}
       />
     </div>
     <div className="right-column">
       <RichText
-        render={slice.primary.right_column_text.raw || []}
+        render={slice.primary.right_column_text.richText || []}
         serializeHyperlink={GatsbyLink}
       />
     </div>
@@ -28,38 +28,26 @@ export const query = graphql`
   fragment PageDataBodyTextInfo on PrismicPageDataBodyTextInfo {
     primary {
       left_column_text {
-        html
-        raw
-        text
+        richText
       }
       right_column_text {
-        html
-        raw
-        text
+        richText
       }
       section_title {
-        html
-        raw
-        text
+        richText
       }
     }
   }
   fragment HomepageDataBodyTextInfo on PrismicHomepageDataBodyTextInfo {
     primary {
       left_column_text {
-        html
-        raw
-        text
+        richText
       }
       right_column_text {
-        html
-        raw
-        text
+        richText
       }
       section_title {
-        html
-        raw
-        text
+        richText
       }
     }
   }
