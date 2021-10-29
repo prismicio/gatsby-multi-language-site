@@ -6,15 +6,15 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export const TopMenu = ({ topMenu, activeDocMeta }) => {
-  const renderedMenuLinks = topMenu ? (
-    topMenu.menu_links.map((menuLink, index) => (
-      <li key={`top-nav-${index}`}>
-        <Link id={menuLink.link.id} to={menuLink.link.url}>
-          {RichText.asText(menuLink.label.richText)}
-        </Link>
-      </li>
-    ))
-  ) : null
+  const renderedMenuLinks = topMenu
+    ? topMenu.menu_links.map((menuLink, index) => (
+        <li key={`top-nav-${index}`}>
+          <Link id={menuLink.link.id} to={menuLink.link.url}>
+            {RichText.asText(menuLink.label.richText)}
+          </Link>
+        </li>
+      ))
+    : null
 
   return (
     <header>

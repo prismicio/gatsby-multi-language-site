@@ -19,7 +19,9 @@ export const EmailSignup = ({ slice }) => (
         className="email-input"
         type="text"
         name="FirstName"
-        placeholder={RichText.asText(slice.primary.input_placeholder.richText || [])}
+        placeholder={RichText.asText(
+          slice.primary.input_placeholder.richText || [],
+        )}
       />
       <input
         className="btn"
