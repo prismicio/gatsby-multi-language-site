@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
-import { RichText } from 'prismic-reactjs'
-
-import { GatsbyLink } from '../components/GatsbyLink'
+import { PrismicRichText } from '@prismicio/react'
 
 export const InfoWithImage = ({ slice }) => {
   const featuredImage = slice.primary.featured_image
@@ -32,11 +30,8 @@ export const InfoWithImage = ({ slice }) => {
           alt="Checkbox icon"
           placeholder="none"
         />
-        <RichText render={slice.primary.section_title.richText || []} />
-        <RichText
-          render={slice.primary.text.richText || []}
-          serializeHyperlink={GatsbyLink}
-        />
+        <PrismicRichText field={slice.primary.section_title.richText} />
+        <PrismicRichText field={slice.primary.text.richText} />
       </div>
     </section>
   )

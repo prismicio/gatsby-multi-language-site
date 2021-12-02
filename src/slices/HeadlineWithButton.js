@@ -1,18 +1,13 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import { PrismicRichText } from '@prismicio/react'
 import { GatsbyImage } from 'gatsby-plugin-image'
-
-import { GatsbyLink } from '../components/GatsbyLink'
 
 export const HeadlineWithButton = ({ slice }) => (
   <section className="headline-with-button">
     <div>
-      <RichText render={slice.primary.headline.richText || []} />
-      <RichText
-        render={slice.primary.description.richText || []}
-        serializeHyperlink={GatsbyLink}
-      />
+      <PrismicRichText field={slice.primary.headline.richText} />
+      <PrismicRichText field={slice.primary.description.richText} />
     </div>
     <div className="button">
       <GatsbyImage

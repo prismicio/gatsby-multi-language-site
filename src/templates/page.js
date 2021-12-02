@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { SliceZone } from '@prismicio/react'
 
 import { Layout } from '../components/Layout'
-import { SliceZone } from '../components/SliceZone'
+import { components } from '../slices'
 
 const PageTemplate = ({ data }) => {
   if (!data) return null
@@ -23,7 +24,7 @@ const PageTemplate = ({ data }) => {
 
   return (
     <Layout topMenu={topMenu.data} activeDocMeta={activeDoc}>
-      <SliceZone slices={page.body} />
+      <SliceZone slices={page.body} components={components} />
     </Layout>
   )
 }

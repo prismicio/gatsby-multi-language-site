@@ -10,6 +10,8 @@ const { defaultLanguage } = require('../../prismic-configuration')
  * @param doc Prismic document to resolve to a URL within your app.
  *
  * @returns URL for the provided Prismic document.
+ *
+ * @type import('@prismicio/helpers').LinkResolverFunction
  */
 exports.linkResolver = (doc) => {
   switch (doc.type) {

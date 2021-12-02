@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
+import { PrismicLink, PrismicText } from '@prismicio/react'
 import { StaticImage } from 'gatsby-plugin-image'
 
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -9,9 +9,9 @@ export const TopMenu = ({ topMenu, activeDocMeta }) => {
   const renderedMenuLinks = topMenu
     ? topMenu.menu_links.map((menuLink, index) => (
         <li key={`top-nav-${index}`}>
-          <Link id={menuLink.link.id} to={menuLink.link.url}>
-            {RichText.asText(menuLink.label.richText)}
-          </Link>
+          <PrismicLink href={menuLink.link.url}>
+            <PrismicText field={menuLink.label.richText} />
+          </PrismicLink>
         </li>
       ))
     : null
