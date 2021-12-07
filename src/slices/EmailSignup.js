@@ -15,12 +15,12 @@ export const EmailSignup = ({ slice }) => (
         className="email-input"
         type="text"
         name="FirstName"
-        placeholder={asText(slice.primary.input_placeholder.richText || [])}
+        placeholder={asText(slice.primary.input_placeholder.richText)}
       />
       <input
         className="btn"
         type="submit"
-        value={asText(slice.primary.button_text.richText || [])}
+        value={asText(slice.primary.button_text.richText)}
       />
     </div>
   </section>
