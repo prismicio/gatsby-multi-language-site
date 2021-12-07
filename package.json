@@ -3,7 +3,7 @@
   "description": "Multi-language website example with Gatsby.js using Prismic headless CMS",
   "author": "Prismic",
   "dependencies": {
-    "@prismicio/helpers": "^2.0.0-beta.5",
+    "@prismicio/helpers": "^2.0.0-beta.7",
     "@prismicio/react": "^2.0.0-beta.7",
     "gatsby": "^4.0.2",
     "gatsby-plugin-image": "^2.0.0",
