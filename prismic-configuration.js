@@ -7,7 +7,7 @@ module.exports = {
   // your repository.
   //
   // Example: 'my-repo' if your Prismic repository URL is 'my-repo.prismic.io'.
-  prismicRepo: 'your-repo-name',
+  prismicRepo: 'multi-language-example',
 
   // The default language for content in your Prismic repository.
   defaultLanguage: 'en-us',
