@@ -1,20 +1,20 @@
-# Prismic & Gatsby multi-language example website 
+# Prismic & Gatsby multi-language example website
 
-This is an example website project using [Gatsby.js](https://www.gatsbyjs.org/) with content managed in [Prismic](https://prismic.io)
+[Gatsby.js](https://www.gatsbyjs.org/) example Multi-language website with content managed in [Prismic](https://prismic.io)
 
-## Getting started
-Check out [this article](https://user-guides.prismic.io/en/articles/3601217-multi-language-website-example-with-gatsby-js) for a step-by-step guide to getting this project up and running.
+## Check out the dedicated article to get this project up and running
 
+[Prismic project guide](https://prismic.io/docs/technologies/example-projects-gatsby)
 
 ## Learn more about using Prismic with Gatsby.js
 
-Check our the [Prismic Gatsby documentation](https://prismic.io/docs/gatsby) to learn how to work with this two technologies.
+[Prismic + Gatsby.js Documentation](https://prismic.io/docs/technologies/gatsby)
 
 ## License
 
 This software is licensed under the Apache 2 license, quoted below.
 
-Copyright 2020 Prismic (http://prismic.io).
+Copyright 2021 [Prismic](http://prismic.io/).
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this project except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0.
 

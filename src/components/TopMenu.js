@@ -1,26 +1,31 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import { RichText } from 'prismic-reactjs'
-import { linkResolver } from 'gatsby-source-prismic-graphql'
-import LanguageSwitcher from './LanguageSwitcher'
-import logo from '../images/logo.png'
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
+import { PrismicLink, PrismicText } from '@prismicio/react'
+import { StaticImage } from 'gatsby-plugin-image'
 
-const TopMenu = ({ topMenu, activeDocMeta }) => {
-  const renderedMenuLinks = topMenu.menu_links
+import { LanguageSwitcher } from './LanguageSwitcher'
+
+export const TopMenu = ({ topMenu, activeDocMeta }) => {
+  const renderedMenuLinks = topMenu
     ? topMenu.menu_links.map((menuLink, index) => (
-      <li key={`top-nav-${index}`}>
-        <Link to={linkResolver(menuLink.link._meta)}>
-          {RichText.asText(menuLink.label)}
-        </Link>
-      </li>
-    ))
+        <li key={`top-nav-${index}`}>
+          <PrismicLink href={menuLink.link.url}>
+            <PrismicText field={menuLink.label.richText} />
+          </PrismicLink>
+        </li>
+      ))
     : null
 
   return (
     <header>
       <div className="menu">
         <Link to="/">
-          <img className="logo" src={logo} alt="Site logo" />
+          <StaticImage
+            src="../images/logo.png"
+            alt="Site logo"
+            placeholder="none"
+            className="logo"
+          />
         </Link>
       </div>
       <div className="menu">
@@ -33,4 +38,23 @@ const TopMenu = ({ topMenu, activeDocMeta }) => {
   )
 }
 
-export default TopMenu
+export const query = graphql`
+  fragment TopMenuFragment on PrismicTopMenu {
+    _previewable
+    type
+    lang
+    data {
+      menu_links {
+        label {
+          richText
+          html
+          text
+        }
+        link {
+          id
+          url
+        }
+      }
+    }
+  }
+`

@@ -1,4 +1,9 @@
-const { prismicRepo, defaultLanguage, langs } = require('./prismic-config')
+const path = require('path')
+const dotenv = require('dotenv')
+
+dotenv.config()
+
+const prismicConfig = require('./prismic-configuration')
 
 module.exports = {
   siteMetadata: {
@@ -7,42 +12,29 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-source-prismic-graphql',
+      resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: prismicRepo,
-        defaultLang: defaultLanguage,
-        path: '/preview',
-        previews: true,
-        langs,
-        pages: [
-          {
-            type: 'Homepage',
-            match: '/:lang?',
-            path: '/:lang?',
-            component: require.resolve('./src/templates/Homepage.js'),
-            langs,
-          },
-          {
-            type: 'Page',
-            match: '/page/:lang?/:uid',
-            path: '/page/:lang?',
-            component: require.resolve('./src/templates/Page.js'),
-            langs,
-          },
-        ],
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        linkResolver: require('./src/utils/linkResolver').linkResolver,
+        schemas: {
+          homepage: require('./custom_types/homepage.json'),
+          page: require('./custom_types/page.json'),
+          top_menu: require('./custom_types/top_menu.json'),
+        },
       },
     },
-    'gatsby-plugin-react-helmet',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-sass',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-prismic-previews',
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
+        repositoryName: prismicConfig.prismicRepo,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
       },
     },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -52,7 +44,14 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/favicon.png',
+        icon: path.resolve(__dirname, 'src', 'images', 'favicon.png'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: path.resolve(__dirname, 'src', 'images'),
       },
     },
   ],

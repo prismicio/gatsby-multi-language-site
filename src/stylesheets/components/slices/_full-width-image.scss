@@ -11,7 +11,7 @@
 
   .main-img {
     z-index: 1;
-  
+
     img {
       width: 100%;
     }
@@ -24,7 +24,7 @@
 
     @media only screen and (min-width: $min-width-xl) {
       display: flex;
-      
+
       &.left-bg {
         display: flex;
         justify-self: start;
@@ -41,7 +41,7 @@
         }
       }
     }
-  
+
     img {
       width: 790px;
       height: 608px;

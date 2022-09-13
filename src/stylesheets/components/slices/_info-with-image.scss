@@ -4,7 +4,7 @@
   flex-direction: column;
   margin: auto;
   padding-bottom: 30px;
-  
+
   @media only screen and (min-width: $min-width-l) {
     display: flex;
     flex-direction: row-reverse;
@@ -19,20 +19,41 @@
     @media only screen and (min-width: $min-width-l) {
       margin-right: 60px;
     }
-  
-    img {
-      width: 100%;
 
-      @media only screen and (min-width: $min-width-l) {
-        width: 516px;
+    .mobile-thumbnail {
+      display: block;
+
+      @media (min-width: $min-width-md) {
+        display: none;
+      }
+    }
+
+    .tablet-thumbnail {
+      display: none;
+
+      @media (min-width: $min-width-md) {
+        display: block;
+      }
+
+      @media (min-width: $min-width-l) {
+        display: none;
+      }
+    }
+
+    .desktop {
+      display: none;
+      width: 516px;
+
+      @media (min-width: $min-width-l) {
+        display: block;
       }
     }
   }
-  
+
   .text-content {
     margin-bottom: 30px;
     text-align: left;
-    
+
     h1,
     h2 {
       margin-top: 20px;
